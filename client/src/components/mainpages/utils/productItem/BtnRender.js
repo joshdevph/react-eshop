@@ -22,10 +22,10 @@ function BtnRender({product, deleteProduct}) {
                     </Link>
                 </>
                 : <>
-                    <Link className="w-full text-center p-1 rounded-sm" id="btn_buy" to="#!" onClick={() => addCart(product)}>
+                    <Link className="w-full text-center text-xs p-2 rounded-full uppercase text-white font-pop tracking-widest hover:bg-green-300 transition duration-300 ease-in-out" id="btn_buy" to="#!" onClick={() => addCart(product)}>
                         Buy
                     </Link>
-                    <Link className="w-full text-center p-1 rounded-sm" id="btn_view" to={`/detail/${product._id}`}>
+                    <Link className="w-full text-center text-xs p-2 rounded-full uppercase text-white font-pop tracking-widest hover:bg-green-300 transition duration-300 ease-in-out" id="btn_view" to={`/detail/${product._id}`}>
                         View
                     </Link>
                 </>

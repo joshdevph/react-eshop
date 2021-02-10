@@ -16,8 +16,8 @@ function UserAPI(token) {
                     })
 
                     setIsLogged(true)
-                    res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
-
+                    res.data.role === 1 ? setIsAdmin(true)  : setIsAdmin(false)
+                    console.log(res)
                     setCart(res.data.cart)
 
                 } catch (err) {
@@ -56,7 +56,7 @@ function UserAPI(token) {
         isAdmin: [isAdmin, setIsAdmin],
         cart: [cart, setCart],
         addCart: addCart,
-        history: [history, setHistory]
+        history: [history, setHistory],
     }
 }
 

@@ -97,7 +97,7 @@ function Cart() {
                                         <div className=" h-24 truncate mt-2">
                                             <h1 className="uppercase text-xl font-bold">{product.title}</h1>
                                             <h1 className="uppercase text-md font-semibold">PHP {product.price}.00</h1>
-                                            <h1 className="uppercase text-xs ">{product.description}</h1>
+                                            {/* <h1 className="uppercase text-xs truncate">{product.description}</h1> */}
                                         </div>
                                         <div className="h-10 flex items-center justify-between w-full md:mb-4">
                                             <div className=" flex space-x-1 items-center">

@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import {GlobalState} from '../../GlobalState'
 import {Link} from 'react-router-dom'
-import { FiShoppingCart, FiAlignRight} from "react-icons/fi";
+import { FiShoppingCart, FiAlignRight, FiLogOut} from "react-icons/fi";
 import axios from 'axios'
 
 function Header() {
@@ -22,8 +22,8 @@ function Header() {
     const adminRouter = () =>{
         return(
             <>
-                <span className="text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/create_product">Create Product</Link></span>
-                <span className="text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/category">Categories</Link></span>
+                <span className=" tracking-wider text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/create_product">Create Product</Link></span>
+                <span className=" tracking-wider text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/category">Categories</Link></span>
             </>
         )
     }
@@ -31,8 +31,8 @@ function Header() {
     const loggedRouter = () =>{
         return(
             <>
-                <span className="text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/history">History</Link></span>
-                <span className="text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/" onClick={logoutUser}>Logout</Link></span>
+                <span className=" tracking-wider text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/history">History</Link></span>
+                <span className=" tracking-wider text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/" onClick={logoutUser}><FiLogOut/></Link></span>
             </>
         )
     }
@@ -44,7 +44,7 @@ function Header() {
 
     return (
         
-        <header className="w-full shadow  bg-gray-50">
+        <header className="w-full shadow  bg-gray-50 font-pop">
         <div className="flex flex-row justify-between items-center m-auto w-5/6 py-5">
             <div className="md:hidden">
                 <FiAlignRight className=" mr-5 text-4xl md:hidden" />
@@ -52,15 +52,15 @@ function Header() {
 
             <div>
                 <h1 className="text-3xl font-bold">
-                    <Link to="/"><span className="text-red-500 uppercase tracking-widest">{isAdmin ? 'Admin panel' : 'Foodaa'}</span></Link>
+                    <Link to="/"><span className="text-red-500 uppercase tracking-widest">{isAdmin ? "Admin" : 'Kaon'}</span></Link>
                 </h1>
             </div>
 
             <div className="hidden space-x-10 md:flex md:items-center md:justify-center">
-                <span className="text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/">{isAdmin ? 'Product' : 'Shop'}</Link></span>
+                <span className="trackin-wide text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/">{isAdmin ? 'Product' : 'Shop'}</Link></span>
 
                 {isAdmin && adminRouter()} {
-                    isLogged ? loggedRouter() : <span className="text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/login">Login</Link></span>
+                    isLogged ? loggedRouter() : <span className="trackin-wide text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/login">Login</Link></span>
                 }
 
                 { isAdmin ? '' :

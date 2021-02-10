@@ -50,12 +50,18 @@
     padding: 6px;
 }
 #btn_buy{
-    background: #555;
+    background:  rgb(248, 113, 113);
     margin-right: 5px;
 }
 #btn_view{
-    background: teal;
+    background: rgb(120, 121, 121);
     margin-left: 5px;
+}
+#btn_buy:hover {
+    background:  rgb(250, 51, 51);
+}
+#btn_view:hover {
+    background:  rgb(74, 75, 75);
 }
 .product_card input{
     position: absolute;

@@ -9,7 +9,7 @@ function App() {
   return (
     <DataProvider>
       <Router>
-        <div className="App">
+        <div className="App font-pop">
           <Header />
           <MainPages />
         </div>

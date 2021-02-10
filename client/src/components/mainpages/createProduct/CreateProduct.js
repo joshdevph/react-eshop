@@ -158,13 +158,13 @@ function CreateProduct() {
 
                 <div className="row">
                     <label htmlFor="description">Description</label>
-                    <textarea className="border-2 border-black p-3 rounded-xl" type="text" name="description" id="description" required
+                    <textarea className="border-2 border-black p-3 rounded-xl focus:outline-none" type="text" name="description" id="description" required
                     value={product.description} rows="5" onChange={handleChangeInput} />
                 </div>
 
                 <div className="row">
                     <label htmlFor="content">Content</label>
-                    <textarea className="border-2 border-black p-3 rounded-xl" type="text" name="content" id="content" required
+                    <textarea className="border-2 border-black p-3 rounded-xl focus:outline-none" type="text" name="content" id="content" required
                     value={product.content} rows="7" onChange={handleChangeInput} />
                 </div>
 
@@ -174,7 +174,7 @@ function CreateProduct() {
                         <option  value="">Please select a category</option>
                         {
                             categories.map(category => (
-                                <option  value={category._id} key={category._id}>
+                                <option className="uppercase text-sm"  value={category._id} key={category._id}>
                                     {category.name}
                                 </option>
                             ))

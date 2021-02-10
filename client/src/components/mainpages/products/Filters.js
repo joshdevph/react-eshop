@@ -19,11 +19,11 @@ function Filters() {
         <div className=" mt-10 w-5/6 m-auto grid grid-cols-3 gap-1 items-center md:w-3/4">
             <div className=" h-10 p-2 col-span-3 md:col-span-1 w-full flex mb-2 items-center">
                 <span className="w-1/4">Filters: </span>
-                <select className="border-red-400 border-b-2 w-3/4 h-8 cursor-pointer focus:outline-none" name="category" value={category} onChange={handleCategory} >
+                <select className="border-red-400 border-b-2 w-3/4 h-8 cursor-pointer focus:outline-none capitalize" name="category" value={category} onChange={handleCategory} >
                     <option  value=''>All Products</option>
                     {
                         categories.map(category => (
-                            <option value={"category=" + category._id} key={category._id}>
+                            <option className="uppercase text-sm" value={"category=" + category._id} key={category._id}>
                                 {category.name}
                             </option>
                         ))

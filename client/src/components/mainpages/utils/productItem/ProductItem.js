@@ -12,9 +12,9 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
             <img className="object-cover w-full h-56 m-auto rounded" src={product.images.url} alt="" />
 
             <div className=" h-auto pl-2">
-                <h2 className="text-lg uppercase font-bold" title={product.title}>{product.title}</h2>
-                <span className="text-md font-semibold">${product.price}</span>
-                <p className="text-sm mt-2">{product.description}</p>
+                <h2 className="text-2xl uppercase font-bold mt-2 font-pop" title={product.title}>{product.title}</h2>
+                <span className="text-sm font-semibold font-pop">Php. {product.price}</span>
+                <p className="text-xs mt-2 font-pop">{product.description}</p>
             </div>
 
             
