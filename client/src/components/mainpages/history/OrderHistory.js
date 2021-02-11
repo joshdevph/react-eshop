@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react'
 import {GlobalState} from '../../../GlobalState'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 function OrderHistory() {
@@ -52,9 +52,9 @@ function OrderHistory() {
                             {
                                 history.map(item => (
                                     <tr key={item._id}>
-                                        <td className="border-2 border-black p-2 truncate tracking-wide text-center">{item.paymentID}</td>
+                                        <td className="border-2 border-black p-2 truncate tracking-wide text-center font-pop">{item.paymentID}</td>
                                         <td className="border-2 border-black p-2 truncate text-center tracking-widest">{new Date(item.createdAt).toLocaleDateString()}</td>
-                                        <td className="border-2 border-black p-2 truncate text-center">View</td>
+                                        <td className="border-2 border-black p-2 truncate text-center text-blue-700 text-sm font-semibold font-pop uppercase"><Link to={`/history/${item._id}`}> Check</Link></td> 
                                     </tr>
                                 ))
                             }

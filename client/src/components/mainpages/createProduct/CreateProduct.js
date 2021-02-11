@@ -137,7 +137,7 @@ function CreateProduct() {
                 
             </div>
 
-            <form onSubmit={handleSubmit} className=" w-5/6 m-auto p-10 rounded-sm shadow-lg space-y-3 mt-5">
+            <form onSubmit={handleSubmit} className=" w-5/6 m-auto p-10 rounded-sm shadow-lg space-y-3 mt-5 border-t-8 border-black">
                 <div className="grid grid-cols-3">
                     <label htmlFor="product_id">Product ID</label>
                     <input className="col-span-2 rounded-lg pl-5" type="text" name="product_id" id="product_id" required

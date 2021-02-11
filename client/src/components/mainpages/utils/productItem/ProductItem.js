@@ -14,7 +14,7 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
             <div className=" h-auto pl-2">
                 <h2 className="text-2xl uppercase font-bold mt-2 font-pop" title={product.title}>{product.title}</h2>
                 <span className="text-sm font-semibold font-pop">Php. {product.price}</span>
-                <p className="text-xs mt-2 font-pop">{product.description}</p>
+                <p className="text-xs mt-2 font-pop truncate nowrap">{product.description}</p>
             </div>
 
             
