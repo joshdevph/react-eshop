@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
+import swal from 'sweetalert'
 
 function UserAPI(token) {
     const [isLogged, setIsLogged] = useState(false)
@@ -17,7 +18,6 @@ function UserAPI(token) {
 
                     setIsLogged(true)
                     res.data.role === 1 ? setIsAdmin(true)  : setIsAdmin(false)
-                    console.log(res)
                     setCart(res.data.cart)
 
                 } catch (err) {
@@ -33,7 +33,12 @@ function UserAPI(token) {
     
 
     const addCart = async (product) => {
-        if(!isLogged) return alert("Please login to continue buying")
+        if(!isLogged) 
+        return swal({
+            title: `Information`,
+            text: "Please Login to continue buying",
+            icon: "info",
+        });
 
         const check = cart.every(item =>{
             return item._id !== product._id
@@ -42,12 +47,22 @@ function UserAPI(token) {
         if(check){
             setCart([...cart, {...product, quantity: 1}])
 
+            swal({
+                title: `Success`,
+                text: "Item added in your cart",
+                icon: "success",
+            });
+
             await axios.patch('/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
                 headers: {Authorization: token}
             })
 
         }else{
-            alert("This product has been added to cart.")
+            swal({
+                title: `Warning`,
+                text: "Item is already listed in your cart",
+                icon: "error",
+            });
         }
     }
 

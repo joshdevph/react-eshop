@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import swal from 'sweetalert'
 
 function Register() {
     const [user, setUser] = useState({
@@ -18,11 +19,20 @@ function Register() {
             await axios.post('/user/register', {...user})
 
             localStorage.setItem('firstLogin', true)
+            swal({
+                title: `Welcome to, K A O N`,
+                text: "You have successfully registered",
+                icon: "success",
+            });
 
-            
-            window.location.href = "/";
+            window.setTimeout(function() {
+                window.location.href = '/';
+            }, 2000);
         } catch (err) {
-            alert(err.response.data.msg)
+            swal({
+                title: err.response.data.msg,
+                icon: "error",
+            })
         }
     }
 

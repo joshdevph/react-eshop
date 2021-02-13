@@ -1,6 +1,8 @@
 import React, {useState, useContext} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import axios from 'axios'
+import swal from 'sweetalert'
+import {FiTrash2, FiEdit2} from 'react-icons/fi'
 
 function Categories() {
     const state = useContext(GlobalState)
@@ -18,12 +20,21 @@ function Categories() {
                 const res = await axios.put(`/api/category/${id}`, {name: category}, {
                     headers: {Authorization: token}
                 })
-                alert(res.data.msg)
+                swal({
+                    title: 'Success',
+                    text: res.data.msg,
+                    icon: "success",
+                });
             }else{
                 const res = await axios.post('/api/category', {name: category}, {
                     headers: {Authorization: token}
                 })
-                alert(res.data.msg)
+                swal({
+                    title: 'Success',
+                    text: res.data.msg,
+                    icon: "success",
+                });
+
             }
             setOnEdit(false)
             setCategory('')
@@ -31,6 +42,11 @@ function Categories() {
             
         } catch (err) {
             alert(err.response.data.msg)
+            swal({
+                title: 'Server Error',
+                text: err.response.data.msg,
+                icon: "error",
+            });
         }
     }
 
@@ -42,13 +58,22 @@ function Categories() {
 
     const deleteCategory = async id =>{
         try {
+            swal({
+                title: 'Success',
+                text: "Category deleted successfully",
+                icon: "success",
+            });
             const res = await axios.delete(`/api/category/${id}`, {
                 headers: {Authorization: token}
             })
-            alert(res.data.msg)
+
             setCallback(!callback)
         } catch (err) {
-            alert(err.response.data.msg)
+            swal({
+                title: 'Server Error',
+                text: err.response.data.msg,
+                icon: "error",
+            });
         }
     }
 
@@ -65,11 +90,11 @@ function Categories() {
             <div className="mt-10 grid grid-cols-1 gap-2 md:grid-cols-4">
                 {
                     categories.map(category => (
-                        <div className="col-span-1 bg-gray-300 flex flex-col justify-center items-center w-full shadow-lg rounded-xl" key={category._id}>
+                        <div className="col-span-1 bg-gray-50 flex flex-col justify-center items-center w-full shadow-lg rounded-xl" key={category._id}>
                             <p className="text-2xl uppercase mt-3 mb-3 font-pop font-bold">{category.name}</p>
-                            <div className="flex justify-between items-center space-x-3 w-full p-2 mb-1">
-                                <button className="bg-white shadow-md uppercase text-xs hover:bg-green-400 focus:outline-none  transition duration-300 ease-in-out  p-1 rounded-full  w-full" onClick={() => editCategory(category._id, category.name)}>Edit</button>
-                                <button className="bg-white shadow-md uppercase text-xs hover:bg-red-400   focus:outline-none transition duration-300 ease-in-out p-1 rounded-full  w-full" onClick={() => deleteCategory(category._id)}>Delete</button>
+                            <div className="flex justify-between space-x-6 mb-5 h-10">
+                                <button className="bg-gray-100 border border-black shadow-md uppercase w-10 text-md flex items-center justify-center    hover:bg-green-400 focus:outline-none transition duration-300 ease-in-out  p-2 rounded-full  " onClick={() => editCategory(category._id, category.name)}><FiEdit2/></button>
+                                <button className="bg-gray-100 border border-black shadow-md uppercase w-10 text-md flex items-center justify-center    hover:bg-red-400   focus:outline-none transition duration-300 ease-in-out p-2 rounded-full  " onClick={() => deleteCategory(category._id)}><FiTrash2/></button>
                             </div>
                         </div>
                     ))

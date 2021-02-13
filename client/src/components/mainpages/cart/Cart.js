@@ -3,6 +3,7 @@ import {GlobalState} from '../../../GlobalState'
 import axios from 'axios'
 import PaypalButton from './PaypalButton'
 import { MdErrorOutline } from "react-icons/md";
+import swal from 'sweetalert'
 function Cart() {
     const state = useContext(GlobalState)
     const [cart, setCart] = state.userAPI.cart
@@ -53,16 +54,38 @@ function Cart() {
     }
 
     const removeProduct = id =>{
-        if(window.confirm("Do you want to delete this product?")){
-            cart.forEach((item, index) => {
-                if(item._id === id){
-                    cart.splice(index, 1)
-                }
-            })
 
-            setCart([...cart])
-            addToCart(cart)
-        }
+        // if(answer == true)
+        //     {
+
+        // }
+        swal("Are you sure to remove this?", {
+            buttons: {
+              remove: {
+                value: "remove",
+              },
+              cancel: "Cancel",
+            },
+            icon: "warning"
+          })
+          .then((value) => {
+            switch (value) {
+              case "remove":
+                swal("Gotcha!", "Item removed successfully", "success");
+                cart.forEach((item, index) => {
+                    if(item._id === id){
+                        cart.splice(index, 1)
+                    }
+                })
+    
+                setCart([...cart])
+                addToCart(cart)
+                break;
+           
+                case "cancel":
+                    break;
+            }
+          });
     }
 
     const tranSuccess = async(payment) => {
@@ -74,7 +97,11 @@ function Cart() {
 
         setCart([])
         addToCart([])
-        alert("You have successfully placed an order.")
+        swal({
+            title: `Thank You!`,
+            text: "You have successfully placed an order.",
+            icon: "success",
+        });
     }
 
 

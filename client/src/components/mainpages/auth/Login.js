@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-
+import swal from 'sweetalert'
 function Login() {
     const [user, setUser] = useState({
         email:'', password: ''
@@ -18,10 +18,24 @@ function Login() {
             await axios.post('/user/login', {...user})
 
             localStorage.setItem('firstLogin', true)
-            
-            window.location.href = "/";
+
+            swal({
+                title: `Welcome to, K A O N`,
+                text: "Your place to find what you crave",
+                icon: "success",
+            });
+
+            window.setTimeout(function() {
+                window.location.href = '/';
+            }, 2000);
+
         } catch (err) {
-            alert(err.response.data.msg)
+            // alert()
+            swal({
+                title: err.response.data.msg,
+                text: "Please, Check your user credential",
+                icon: "error",
+            });
         }
     }
 
