@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import {GlobalState} from '../../GlobalState'
 import {Link} from 'react-router-dom'
-import { FiShoppingCart, FiAlignRight, FiLogOut} from "react-icons/fi";
+import { FiShoppingCart, FiAlignRight, FiLogOut, FiX} from "react-icons/fi";
 import axios from 'axios'
 
 function Header() {
@@ -32,7 +32,7 @@ function Header() {
         return(
             <>
                 <span className=" tracking-wider text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/history">History</Link></span>
-                <span className=" tracking-wider text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/" onClick={logoutUser}><FiLogOut/></Link></span>
+                <span className=" tracking-wider text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/" onClick={logoutUser}>Logout</Link></span>
             </>
         )
     }
@@ -47,7 +47,7 @@ function Header() {
         <header className="w-full shadow  bg-gray-50 font-pop">
         <div className="flex flex-row justify-between items-center m-auto w-5/6 py-5">
             <div className="md:hidden">
-                <FiAlignRight className=" mr-5 text-4xl md:hidden" />
+                <FiAlignRight className=" mr-5 text-4xl md:hidden" onClick={() => setMenu(!menu)} />
             </div>
 
             <div>
@@ -57,7 +57,7 @@ function Header() {
             </div>
 
             <div className="hidden space-x-10 md:flex md:items-center md:justify-center">
-                <span className="trackin-wide text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/">{isAdmin ? 'Product' : 'Shop'}</Link></span>
+                <span className="tracking-wide text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/">{isAdmin ? 'Product' : 'Shop'}</Link></span>
 
                 {isAdmin && adminRouter()} {
                     isLogged ? loggedRouter() : <span className="trackin-wide text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/login">Login</Link></span>
@@ -74,6 +74,31 @@ function Header() {
                 
 
             </div>
+        </div>
+
+        <div>
+            <div className="navs md:hidden flex flex-col space-y-28 p-10" style={styleMenu}>
+                <div className="flex w-full justify-end mb-10">
+                    <span className=" right-10 bg-gray-100 p-2 rounded-full mt-10 shadow-2xl hover:bg-red-400 transition duration-300 ease-in-out"><FiX onClick={() => setMenu(!menu)}/></span>
+                </div>
+                    <span className="tracking-wide text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/">{isAdmin ? 'Product' : 'SHOP'}</Link></span>
+
+                    {isAdmin && adminRouter()} {
+                        isLogged ? loggedRouter() : <span className="trackin-wide text-md uppercase border-b-2 border-gray-50 hover:border-red-400"><Link to="/login">Login</Link></span>
+                    }
+
+                    { isAdmin ? '' :
+                                    <div>
+                                    <Link to="/cart"><FiShoppingCart className=" mt-4 text-2xl absolute"/>
+                                    <span className="relative text-sm font-semibold flex justify-center items-center w-7 h-7 top-0 left-3 bg-red-400 rounded-full">{cart.length}</span>
+                                    <span className="relative text-sm font-semibold flex justify-center items-center w-7 h-7 bottom-7 left-3 bg-red-400 rounded-full animate-ping"></span>
+                                    </Link>
+                                    </div>
+                    }
+
+
+            </div>
+
         </div>
 
     </header>
