@@ -77,7 +77,7 @@ function Header() {
         </div>
 
         <div>
-            <div className="navs md:hidden flex flex-col space-y-28 p-10" style={styleMenu}>
+            <div className="navs md:hidden flex flex-col space-y-16" style={styleMenu}>
                 <div className="flex w-full justify-end mb-10">
                     <span className=" right-10 bg-gray-100 p-2 rounded-full mt-10 shadow-2xl hover:bg-red-400 transition duration-300 ease-in-out"><FiX onClick={() => setMenu(!menu)}/></span>
                 </div>
