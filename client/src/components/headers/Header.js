@@ -52,7 +52,7 @@ function Header() {
 
             <div>
                 <h1 className="text-3xl font-bold">
-                    <Link to="/"><span className="text-red-500 uppercase tracking-widest">{isAdmin ? "Admin" : 'Kaon'}</span></Link>
+                    <Link to="/"><span className="text-red-500 uppercase tracking-widest">{isAdmin ? "Admin" : "EShop"}</span></Link>
                 </h1>
             </div>
 
