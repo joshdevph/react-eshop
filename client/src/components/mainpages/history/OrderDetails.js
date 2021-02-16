@@ -23,7 +23,7 @@ function OrderDetails() {
     return (
         <div className="w-full p-5 md:w-1/2 m-auto">
             <h1 className="mt-5 uppercase tracking-widest text-2xl font-pop font-semibold">Order Details</h1>
-            <table className="w-full mt-5 mb-20">
+            {/* <table className="w-full mt-5 mb-20">
                     <thead >
                         <tr className="border-2 border-black">
                         <th className="border-2 border-black p-3 bg-red-200 uppercase tracking-wider"> Name</th>
@@ -44,8 +44,8 @@ function OrderDetails() {
                         ))
                     }
                     </tbody>
-            </table>
-            <span className=" flex justify-center mt-10 uppercase tracking-widest font-pop font-semibold">  Products Ordered </span>
+            </table> */}
+            {/* <span className=" flex justify-center mt-10 uppercase tracking-widest font-pop font-semibold">  Products Ordered </span> */}
             <table className="w-full mt-10">
                     <thead >
                         <tr className="border-2 border-black">

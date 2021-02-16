@@ -43,7 +43,7 @@ function OrderHistory() {
                     <table className="w-full">
                             <thead >
                                 <tr className="border-2 border-black">
-                                <th className="border-2 border-black p-3 bg-red-200 uppercase tracking-wider"> Payment ID</th>
+                                {/* <th className="border-2 border-black p-3 bg-red-200 uppercase tracking-wider"> Payment ID</th> */}
                                 <th className="border-2 border-black p-3 bg-red-200 uppercase tracking-wider"> Date Purchased</th>
                                 <th className="border-2 border-black p-3 bg-red-200 uppercase tracking-wider"> View</th>
                                 </tr>
@@ -52,7 +52,7 @@ function OrderHistory() {
                             {
                                 history.map(item => (
                                     <tr key={item._id}>
-                                        <td className="border-2 border-black p-2 truncate tracking-wide text-center font-pop">{item.paymentID}</td>
+                                        {/* <td className="border-2 border-black p-2 truncate tracking-wide text-center font-pop">{item.paymentID}</td> */}
                                         <td className="border-2 border-black p-2 truncate text-center tracking-widest">{new Date(item.createdAt).toLocaleDateString()}</td>
                                         <td className="border-2 border-black p-2 truncate text-center text-blue-700 text-sm font-semibold font-pop uppercase"><Link to={`/history/${item._id}`}> Check</Link></td> 
                                     </tr>

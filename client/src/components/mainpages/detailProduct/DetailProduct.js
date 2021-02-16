@@ -33,7 +33,8 @@ function DetailProduct() {
                     <span className="text-md font-pop font-semibold">Php. {detailProduct.price}</span>
                     <p className="text-sm font-pop font-semibold antialiased">{detailProduct.description}</p>
                     <p className="text-sm font-pop font-bold">Sold: {detailProduct.sold}</p>
-                    <Link to="/cart" className="bg-red-400 text-black tracking-widest font-semibold font-pop border-2 border-black rounded-full px-3 py-2 uppercase text-xs absolute top-80"
+                    <Link to="/cart" className="bg-red-400 p-2 rounded-full text-xs px-5 font-semibold uppercase text-white font-pop tracking-wider hover:bg-white hover:text-red-400
+                    border-2 hover:border-red-200 transition duration-300 ease-in-out mt-9"
                     onClick={() => addCart(detailProduct)}>
                         Buy Now
                     </Link>
