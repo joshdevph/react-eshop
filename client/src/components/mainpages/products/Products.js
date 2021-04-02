@@ -5,6 +5,7 @@ import Loading from '../utils/loading/Loading'
 import axios from 'axios'
 import Filters from './Filters'
 import LoadMore from './LoadMore'
+// import io from 'socket.io-client';
 
 
 function Products() {
@@ -57,6 +58,11 @@ function Products() {
     }
 
     if(loading) return <div><Loading /></div>
+
+    // const socket = io('localhost:3000')
+
+    // console.log(socket)
+
     return (
         <>
         <Filters />
